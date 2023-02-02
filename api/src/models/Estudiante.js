@@ -4,7 +4,7 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
-    "videogame",
+    "estudiante",
     {
       id: {
         type: DataTypes.UUID,
@@ -14,33 +14,32 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV4,
       },
 
-      name: {
+      PrimerNombre: {
         type: DataTypes.STRING,
         allowNull: false,
       },
 
-      description: {
+      SegundoNombre: {
         type: DataTypes.STRING,
         allowNull: false,
       },
 
-      released: {
+      PrimerApellido: {
         type: DataTypes.STRING,
-      },
-      rating: {
-        type: DataTypes.FLOAT,
-      },
-      platforms: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
       },
-      background_image: {
+      SegundoApellido: {
         type: DataTypes.STRING,
-      },
-      createInDb: {
-        type: DataTypes.BOOLEAN,
         allowNull: false,
-        defaultValue: true,
+      },
+      FechaDeNacimiento: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
+
+      Fotografia: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
     },
     { timestamps: false }

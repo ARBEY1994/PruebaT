@@ -2,8 +2,8 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const modelVideog = require("./models/Videogame");
-const modelGnere = require("./models/Genres");
+const modelStudents = require("./models/Estudiante");
+const modelGrados = require("./models/Grados");
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT } = process.env;
 
@@ -32,7 +32,7 @@ let sequelize =
         ssl: true,
       })
     : new Sequelize(
-        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`,
+        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/EstudiantesDB`,
         { logging: false, native: false }
       );
 // const sequelize = new Sequelize(
@@ -43,8 +43,8 @@ let sequelize =
 //   }
 // );
 
-modelVideog(sequelize);
-modelGnere(sequelize);
+modelStudents(sequelize);
+modelGrados(sequelize);
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -71,10 +71,10 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Videogame, Genres } = sequelize.models;
+const { Estudiante, Grados } = sequelize.models;
 
-Videogame.belongsToMany(Genres, { through: "videoGame_genres" });
-Genres.belongsToMany(Videogame, { through: "videoGame_genres" });
+Estudiante.belongsToMany(Grados, { through: "Estudiante_grados" });
+Grados.belongsToMany(Estudiante, { through: "Estudiante_grados" });
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
