@@ -1,7 +1,7 @@
 .background {
   height: 100%;
   width: 100%;
-  background-image: url("./imagenes/landing.jpg");
+  background: radial-gradient(#cfd4e2, #9c8d8d, #585454);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -31,7 +31,7 @@
   left: 23%;
   top: 5%;
 }
-span {
+.title span {
   background: linear-gradient(to right, rgb(240, 240, 227), rgb(223, 223, 29));
   -webkit-background-clip: text;
   background-clip: text;
@@ -49,14 +49,31 @@ span {
   display: inline-block;
   font-weight: bold;
   padding: 10px 10px;
-  overflow: hidden;
+
   letter-spacing: 3px;
   font-size: 15px;
   text-transform: uppercase;
   border-color: #7c7069;
+  transition: all 0.3s ease-out;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
-  background: linear-gradient(to right, rgb(128, 118, 112), rgb(223, 223, 29));
+  background: linear-gradient(to right, rgb(59, 115, 235), rgb(146, 209, 228));
+}
+.buttonLanding2 {
+  position: relative;
+  top: 1em;
+  display: inline-block;
+  font-weight: bold;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 15px;
+  transition: all 0.3s ease-out;
+  border-color: #7c7069;
+
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  background: linear-gradient(to right, rgb(59, 115, 235), rgb(146, 209, 228));
 }
 .buttonLanding:hover {
   padding: 15px 15px;
@@ -64,4 +81,13 @@ span {
   color: beige;
   border-color: #77706e;
   box-shadow: 0 0 50px #77706e, 0 0 80px #77706e, 0 0 120px #77706e;
+  transform: scale(1.1);
+}
+.buttonLanding2:hover {
+  padding: 15px 15px;
+  background: #77706e;
+  color: beige;
+  border-color: #77706e;
+  box-shadow: 0 0 50px #6e7377, 0 0 80px #77706e, 0 0 120px #77706e;
+  transform: scale(1.1);
 }

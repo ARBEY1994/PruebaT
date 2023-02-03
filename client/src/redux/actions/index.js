@@ -1,20 +1,15 @@
 import axios from "axios";
-export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
-export const GET_GENRES = "GET_GENRES";
+export const GET_ESTUDIANTES = "GET_ESTUDIANTES";
+export const GET_GRADOS = "GET_GRADOS";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_ID = "GET_ID";
-export const CREATED_OR_EXISTING = "CREATED_OR_EXISTING";
-export const GET_PLATFORMS = "GET_PLATFORMS";
-export const FILTER_BY_GENRE = "FILTER_BY_GENRE";
-export const ORDER_ASC_DES = "ORDER_ASC_DES";
-export const FILTER_BY_RATING = "FILTER_BY_RATING";
 
-export function GetVideogames() {
+export function GetEstudiantes() {
   return async function (dispatch) {
     try {
-      let info = await axios.get(`/videoGames`);
+      let info = await axios.get(`/estudiante`);
       return dispatch({
-        type: "GET_VIDEOGAMES",
+        type: "GET_ESTUDIANTES",
         payload: info.data,
       });
     } catch (error) {
@@ -23,27 +18,13 @@ export function GetVideogames() {
   };
 }
 
-export function GetGenres() {
+export function GetGrados() {
   return async function (dispatch) {
     try {
-      let infoG = await axios.get(`/genres`);
+      let infoG = await axios.get(`/grados`);
       return dispatch({
-        type: "GET_GENRES",
+        type: "GET_GRADOS",
         payload: infoG.data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
-
-export function getPlatforms() {
-  return async function (dispatch) {
-    try {
-      let { data } = await axios.get("/platforms");
-      return dispatch({
-        type: "GET_PLATFORMS",
-        payload: data,
       });
     } catch (error) {
       console.log(error);
@@ -54,7 +35,7 @@ export function getPlatforms() {
 export function GetDetail(id) {
   return async function (dispatch) {
     try {
-      let infoId = await axios.get(`/videoGames/${id}`);
+      let infoId = await axios.get(`/estudiante/${id}`);
       return dispatch({
         type: "GET_ID",
         payload: infoId.data,
@@ -68,7 +49,7 @@ export function GetDetail(id) {
 export function GetByName(name) {
   return async function (dispatch) {
     try {
-      let { data } = await axios.get(`/videoGames?name=${name}`);
+      let { data } = await axios.get(`/estudiante?name=${name}`);
       return dispatch({
         type: "GET_BY_NAME",
         payload: data,
@@ -79,30 +60,36 @@ export function GetByName(name) {
   };
 }
 
-export function postVideogame(payload) {
+export function postEstudiante(payload) {
   return async function (dispatch) {
-    const info = await axios.post(`/videoGames`, payload);
+    const info = await axios.post(`/estudiante`, payload);
     return info;
   };
 }
 
-export function filterByGenre(payload) {
-  return {
-    type: "FILTER_BY_GENRE",
-    payload,
+export function postGrados(payload) {
+  return async function (dispatch) {
+    const info = await axios.post(`/grados`, payload);
+    return info;
   };
 }
 
-export function createdOrExisting(payload) {
-  return {
-    type: "CREATED_OR_EXISTING",
-    payload,
+export function deleteEstudent(id) {
+  return async function (dispatch) {
+    try {
+      await axios.delete(`/estudiante/${id}`);
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
-export function OrderAscOrDsc(payload) {
-  return {
-    type: "ORDER_ASC_DES",
-    payload,
+export function updateEstudiante(id, payload) {
+  return async function (dispatch) {
+    try {
+      await axios.put(`/estudiante/${id}`, payload);
+    } catch (error) {
+      console.log(error);
+    }
   };
 }

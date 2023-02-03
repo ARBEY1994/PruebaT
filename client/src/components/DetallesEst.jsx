@@ -4,14 +4,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { GetDetail } from "../redux/actions";
-import imag from "./styles/imagenes/videojuegos.jpg";
-import imagel from "./styles/imagenes/Loading_icon.gif";
+
 import "./styles/detail.css";
 
-export default function VideoGameDetail() {
+export default function Detail() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const IdGame = useSelector((state) => state.getId);
+  const IdEstudiante = useSelector((state) => state.getId);
   const [state, setState] = useState(true);
 
   useEffect(() => {
@@ -21,13 +20,10 @@ export default function VideoGameDetail() {
   if (state) {
     return (
       <div>
-        {" "}
-        <img src={imagel} alt="" />
+        <h1>Cargando...</h1>
       </div>
     );
   }
-
-  let expressions = /(<([^>]+)>)/gi;
 
   return (
     <div className="detail">
@@ -36,32 +32,22 @@ export default function VideoGameDetail() {
           <div className="fondo2">
             <div className="imagend">
               <img
-                src={IdGame.background_image ? IdGame.background_image : imag}
+                src={IdEstudiante.Fotografia}
                 alt="img not fount"
                 height="100px"
                 width="100px"
               />
             </div>
             <div className="text">
-              <h3>Id: {IdGame.id}</h3>
-              <h3>Name: {IdGame.name}</h3>
+              <h3>Id: {IdEstudiante.id}</h3>
+              <h3>Primer nombre: {IdEstudiante.PrimerNombre}</h3>
 
-              <h3>Released: {IdGame.released}</h3>
-              <h3>Rating: {IdGame.rating} </h3>
-              <h3>
-                Platforms:{" "}
-                {IdGame.platforms.map((e) => (e.name ? "," + e.name : "," + e))}
-              </h3>
-              <h3>
-                Genres:{" "}
-                {IdGame.genres.map((e) => (e.name ? "," + e.name : "," + e))}
-              </h3>
-              <h3>
-                Description:{" "}
-                {IdGame.description
-                  .replace(expressions, "")
-                  .replace("&#39", "")}
-              </h3>
+              <h3>Segundo nombre: {IdEstudiante.SegundoNombre}</h3>
+              <h3>Primer apellido: {IdEstudiante.PrimerApellido} </h3>
+              <h3>Segundo apellido: {IdEstudiante.SegundoApellido}</h3>
+              <h3>Fecha de nacimiento: {IdEstudiante.FechaDeNacimiento}</h3>
+
+              <h3>Grados: {IdEstudiante.grados.map((e) => e.Nombre)}</h3>
             </div>
           </div>
         }

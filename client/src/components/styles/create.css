@@ -1,7 +1,7 @@
 .fondoCreate {
   width: 100%;
   height: 100%;
-  background-image: url("./imagenes/fondocre.jpg");
+  background: radial-gradient(#cfd4e2, #9c8d8d, #585454);
   position: fixed;
 }
 .homecre {
@@ -16,11 +16,11 @@
   letter-spacing: 3px;
   font-size: 10px;
   text-transform: uppercase;
-  border-color: #afa59f;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-color: #7c7069;
+  transition: all 0.3s ease-out;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
-  position: relative;
-  background: linear-gradient(to right, rgb(124, 119, 115), rgb(223, 223, 29));
+  background: linear-gradient(to right, rgb(59, 115, 235), rgb(146, 209, 228));
 }
 .botonhomecre:hover {
   background: #77706e;
@@ -41,6 +41,12 @@
   position: relative;
   left: 23%;
 }
+.titlecreate span {
+  background: linear-gradient(to right, rgb(240, 240, 227), rgb(223, 223, 29));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .li {
   list-style: none;
 }
@@ -57,11 +63,11 @@
   letter-spacing: 3px;
   font-size: 10px;
   text-transform: uppercase;
-  border-color: #afa59f;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-color: #7c7069;
+  transition: all 0.3s ease-out;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
-  position: relative;
-  background: linear-gradient(to right, rgb(124, 119, 115), rgb(223, 223, 29));
+  background: linear-gradient(to right, rgb(59, 115, 235), rgb(146, 209, 228));
 }
 .botoncreate:hover {
   background: #77706e;
@@ -72,17 +78,25 @@
 .inputc input {
   background: none;
   outline: 0;
-  color: aliceblue;
+  color: rgb(2, 12, 20);
   font-size: 15px;
 }
 .inputc select {
   background: none;
   outline: 0;
-  color: rgb(250, 234, 234);
+  color: rgb(14, 2, 2);
   font-size: 15px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+.inputc span {
+  color: red;
+}
 .option {
-  background-color: rgb(13, 43, 12);
+  background-color: rgb(194, 230, 193);
+}
+.form {
+  display: flex;
+  position: relative;
+  top: 8rem;
 }

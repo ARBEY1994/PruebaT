@@ -1,13 +1,11 @@
 .detail {
   width: 100%;
   height: 100%;
-  background-image: url("./imagenes/yyyyy.jpg");
-  position: fixed;
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
-  animation: movimiento 40s infinite linear alternate;
 }
 .fondo2 {
   display: grid;
@@ -15,29 +13,28 @@
 }
 
 .text {
-  color: aliceblue;
-  padding: 10px;
-  font-size: 70%;
   text-align: center;
+  color: #01060a;
+
+  font-size: 70%;
+
   box-shadow: 0 0 20px #77706e, 0 0 60px #77706e, 0 0 20px #77706e;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  background-size: cover;
-  border-radius: 1rem;
 }
 .botondetail {
   display: inline-block;
   font-weight: bold;
-  padding: 8px 20px;
-  overflow: hidden;
-  letter-spacing: 3px;
-  font-size: 10px;
-  text-transform: uppercase;
-  border-color: #afa59f;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 10px 10px;
 
-  position: relative;
-  background: linear-gradient(to right, rgb(124, 119, 115), rgb(223, 223, 29));
+  letter-spacing: 3px;
+  font-size: 15px;
+  text-transform: uppercase;
+  border-color: #7c7069;
+  transition: all 0.3s ease-out;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  background: linear-gradient(to right, rgb(59, 115, 235), rgb(146, 209, 228));
 }
 .botondetail:hover {
   background: #77706e;
