@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./styles/card.css";
-import { IoIosCloseCircleOutline } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { deleteEstudent, updateEstudiante } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
+import SendIcon from "@mui/icons-material/Send";
 
 export default function Card({
   id,
@@ -49,11 +52,23 @@ export default function Card({
         <h3>Segundo Apellido:{segundoApellido} </h3>
         <h3>Fecha de nacimiento: {FechaDeNacimiento} </h3>
         <h3>Grado: {grados.map((e) => e)}</h3>
-        <button onClick={() => handleDelete(id)}>
-          Eliminar
-          <IoIosCloseCircleOutline />
-        </button>
-        <button onClick={() => handleUpdate(id)}>Actualizar</button>
+
+        <Button
+          onClick={() => handleDelete(id)}
+          variant="outlined"
+          size="small"
+          startIcon={<DeleteIcon />}
+        >
+          Borrar
+        </Button>
+        <Button
+          onClick={() => handleUpdate(id)}
+          variant="contained"
+          size="small"
+          endIcon={<SendIcon />}
+        >
+          Actualizar
+        </Button>
       </div>
     </div>
   );

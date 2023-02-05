@@ -2,8 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { GetGrados, updateEstudiante } from "../redux/actions";
-
 import "./styles/create.css";
+import Button from "@mui/material/Button";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  input: {
+    display: "none",
+  },
+}));
 
 const validate = (input) => {
   let error = {};
@@ -24,7 +31,8 @@ const validate = (input) => {
 
   return error;
 };
-export default function StudentCreate() {
+export default function StudentUpdate() {
+  const classes = useStyles();
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -140,7 +148,22 @@ export default function StudentCreate() {
           <strong>
             <label>Fotografia: </label>
           </strong>
-          <input type="file" onChange={handleChange} />
+          <input
+            accept="image/*"
+            className={classes.input}
+            id="contained-button-file"
+            type="file"
+            onChange={handleChange}
+          />
+          <label htmlFor="contained-button-file">
+            <Button
+              variant="contained"
+              component="span"
+              style={{ color: "black", fontWeight: "bold" }}
+            >
+              Cargar
+            </Button>
+          </label>
           {loading ? (
             <h3>Cargando fotografia...</h3>
           ) : (
